@@ -1,0 +1,53 @@
+question 1. 
+Using SMALLINT for a seconds column is better because it saves space (just 2 bytes), and it works fine for the range of seconds (-32,768 to 32,767),
+while INT is bulkier at 4 bytes and usually not needed for this job.
+
+question 2.
+
+Code:
+SELECT c.id, c.name, cl.length_in_sec
+FROM callingagent c
+INNER JOIN callinglogs cl ON cl.caller_id = c.id
+ORDER BY cl.length_in_sec DESC
+LIMIT 1;
+
+Answer:
+Agent : Takalani Wood,
+Longest call :3,629	
+
+
+Question 3
+
+SELECT callingagent.id AS "Caller ID", callingagent.name AS "Name", COALESCE(COUNT(callinglogs.caller_id), 0) AS "Call Count"
+FROM callingagent
+LEFT JOIN callinglogs ON callinglogs.caller_id = callingagent.id AND callinglogs.length_in_sec >= 1
+GROUP BY callingagent.id, callingagent.name
+ORDER BY callingagent.id;
+
+question 4
+
+code:
+SELECT callingagent.location, AVG(callinglogs.length_in_sec) AS "Average Call Length"
+FROM callingagent
+LEFT JOIN callinglogs ON callinglogs.caller_id = callingagent.id AND callinglogs.length_in_sec >= 1
+GROUP BY callingagent.location
+ORDER BY "Average Call Length" DESC
+LIMIT 1;
+
+answer :
+Location :JHB,
+Hight Average call length :114.47	
+
+question 5
+
+code:
+SELECT callingagent.name,callinglogs.start_timestamp,callinglogs.length_in_sec
+FROM callingagent
+LEFT JOIN callinglogs ON callinglogs.caller_id = callingagent.id 
+order by start_timestamp asc
+limit 1
+
+answer
+Agent :Hendrik Padayachee,
+Date :2018-10-26 08:29,	
+Call seconds: 33
