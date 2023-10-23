@@ -1,0 +1,62 @@
+/* styles.css */
+
+/* Common styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+/* Home Page Styles */
+#wards-list {
+    margin: 20px;
+    padding: 10px;
+}
+
+h2 {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+/* Ward Page Styles */
+#ward-description {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
+
+#changes-list {
+    margin: 20px;
+    padding: 10px;
+}
+
+/* Ward Changes Styles */
+/* Style the "vd_created" event */
+.vd-created {
+    color: green;
+}
+
+/* Style the "vd_deleted" event */
+.vd-deleted {
+    color: red;
+}
+
+/* Style the "boundary_change" event */
+.boundary-change {
+    color: blue;
+}
